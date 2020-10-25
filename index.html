@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <body>
+        <div class=box>
+	</div>
+    </body>
+<title>cookiemonster poster</title>
+<meta charset="UTF-8">
+<style>
+body {
+	margin:0;}
+
+.box {
+    display: block;
+    position: absolute;
+    width: 100%; height: 970px;
+    background-color: black;
+}
+
+
+.cookie {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 1600px;
+    height: 1000px;
+    background: url('cookiemonster.jpg') no-repeat 50% 50%;
+    background-size: contain;
+    transform: translate(-50%,-50%);
+}
+
+.eyes {
+    display: flex;
+    position: absolute;
+    top: 210px;
+    left: 394px;
+}
+
+.eye {
+    position: relative;
+    width: 135px;
+    height: 135px;
+    border-radius: 50%;
+    background: rgba(255,255,255,0);
+    transform: scaleX(1);
+}
+
+.eye-1 {
+    left: -3px;
+}
+
+.eye-2 {
+    left: 1px;
+}
+
+.pupil {
+    position: absolute;
+    left: 49px;
+    bottom: 0;
+    width: 40px;
+    height: inherit;
+}
+
+.pupil:before {
+    content: '';
+    display: block;
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    width: inherit;
+    height: 35px;
+    border-radius: 50%;
+    background-color: #6c6a5f;
+    box-shadow: inset 5px 3px 35px black;
+}
+
+</style>
+</head>
+<body>
+<div class="cookie">
+    <div class="eyes">
+        <div class="eye eye-1">
+            <div class="pupil"></div>
+        </div>
+        <div class="eye eye-2">
+            <div class="pupil"></div>
+        </div>
+
+    </div>
+</div>
+
+<script>
+var eyee = function (selector) {
+    var eye = document.querySelector(selector),
+        pupil = eye.querySelector('.pupil'),
+        eyeb = eye.getBoundingClientRect();
+
+    var eyer = function (mouseX, mouseY) {
+        var 라디안 = Math.atan2( mouseY - (eyeb.y + eyeb.height * 0.5), mouseX - (eyeb.x + eyeb.width * 0.5) );
+        pupil.style.transform = 'rotate(' + (180 * 라디안 / Math.PI - 90) + 'deg)';
+    };
+
+    return {
+        eyer: eyer
+    };
+};
+
+var leye = eyee('.eye-1');
+var reye = eyee('.eye-2');
+
+window.addEventListener('mousemove', function (e) {
+    leye.eyer(e.pageX, e.pageY);
+    reye.eyer(e.pageX, e.pageY);
+});
+</script>
+</body>
+<html>
+	<link rel="stylesheet" href="css/reset.css">
+	<link rel="stylesheet" href="css/style.css">
+<head>
+</head>
+<body>
+    <img src="png/ck5.png" class="box1">
+    <img src="png/ck2.png" class="box2">
+    <img src="png/ck3.png" class="box3">
+    <img src="png/ck7.png" class="box4">
+    <img src="png/ck1.png" class="box5">
+    <img src="png/ck6.png" class="box6">
+    <img src="png/ck4.png" class="box7">
+    <img src="png/ssm.png" class="logo">
+</body>
+</html>
